@@ -1,6 +1,6 @@
 // Setup empty JS object to act as endpoint for all routes
 const port = 8080;
-projectData = [];
+projectData = {};
 
 // Require Express to run server and routes
 const express = require("express");
@@ -39,6 +39,6 @@ function getAll(req, res) {
 app.post("/add", addData);
 
 function addData(req, res) {
-  projectData.push(req.body.entry);
+  projectData = req.body.entry;
   res.send("POST received");
 }

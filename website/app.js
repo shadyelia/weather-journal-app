@@ -69,15 +69,12 @@ const retrieveData = async () => {
   try {
     // Transform into JSON
     const allData = await request.json();
-    if (allData && allData.length > 0) {
-      console.log(allData);
-      // Write updated data to DOM elements
-      const data = allData[allData.length-1]
-      document.getElementById("temp").innerHTML =
-        Math.round(data.temp) + " degrees";
-      document.getElementById("content").innerHTML = data.feel;
-      document.getElementById("date").innerHTML = data.date;
-    }
+    console.log(allData);
+    // Write updated data to DOM elements
+    document.getElementById("temp").innerHTML =
+      Math.round(allData.temp) + " degrees";
+    document.getElementById("content").innerHTML = allData.feel;
+    document.getElementById("date").innerHTML = allData.date;
   } catch (error) {
     console.log("error", error);
     // appropriately handle the error
